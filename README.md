@@ -41,7 +41,7 @@ Or run it without installing: `python3 -m chat2net <file>` from inside the folde
 |---|---|---|
 | **Telegram** | Telegram Desktop: open the chat, menu, *Export chat history*, format *JSON*. Gives `result.json`. | replies, forwards, @mentions |
 | **X (Twitter) archive** | *Settings > Your account > Download an archive of your data*. Point at the folder or at `data/tweets.js`. | replies, reposts, @mentions |
-| **YouTube comments** | `yt-dlp --skip-download --write-comments URL` gives `<title>.info.json`. | replies to a comment; top-level comments point at the uploader |
+| **YouTube comments** | `yt-dlp --skip-download --write-comments URL` gives `<title>.info.json`. | replies to a comment, @handle mentions; top-level comments point at the uploader |
 | **Any CSV or TSV of posts** | A table with an author column and a text column. | `RT @name` and @mentions found in the text |
 | **Any CSV or TSV of pairs** | A table with a "from" column and a "to" column. | one interaction per row |
 
@@ -109,7 +109,7 @@ Several files can be combined into one network: `chat2net groupA.json groupB.jso
 - **Names differing only in capital letters are merged** unless you pass `--case-sensitive`.
 - **In a CSV of pairs, each row counts as one interaction.** An existing weight column is not read.
 - **Self-replies are left out** and counted in the summary.
-- The X archive and Telegram export formats are not formally documented and can change. The parsers were written against the formats as of November 2026 and tested on small sample files, not on every export variant. If a file fails, please open an issue with the structure (not the content) of the file.
+- The X archive and Telegram export formats are not formally documented and can change. The parsers were written against the formats as of November 2026. The YouTube parser has been checked against real `yt-dlp` output (300 comments, counts verified independently). The Telegram and X parsers have been tested only on small hand-made sample files, not on real exports. If a file fails, please open an issue with the structure (not the content) of the file.
 
 ## Use it responsibly
 

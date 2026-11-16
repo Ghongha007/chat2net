@@ -1,5 +1,6 @@
 {"id":"abc","uploader":"Channel X","comments":[
 {"id":"c1","author":"@asha","parent":"root","text":"great","timestamp":1790848800},
-{"id":"c1.1","author":"@ben","parent":"c1","text":"@asha yes","timestamp":1790849800},
-{"id":"c2","author":"@chitra","parent":"root","text":"hmm","timestamp":1790850800}
+{"id":"c1.1","author":"@ben","parent":"c1","text":"@asha yes, and @chitra.k-1 said so too. Mail a@b.com","timestamp":1790849800},
+{"id":"c2","author":"@chitra.k-1","parent":"root","text":"hmm","timestamp":1790850800},
+{"id":"c3","author":"@dev","parent":"gone","text":"reply to a deleted comment","timestamp":1790850900}
 ]}

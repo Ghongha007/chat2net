@@ -34,8 +34,10 @@ class T(unittest.TestCase):
     def test_youtube(self):
         e = E(net("video.info.json"))
         self.assertEqual(e[("@asha", "Channel X")], {"reply": 1})
-        self.assertEqual(e[("@ben", "@asha")], {"reply": 1})
-        self.assertEqual(e[("@chitra", "Channel X")], {"reply": 1})
+        self.assertEqual(e[("@ben", "@asha")], {"reply": 1})            # "@asha" at the start is the reply, not also a mention
+        self.assertEqual(e[("@ben", "@chitra.k-1")], {"mention": 1})    # lands on the commenter's own node, dots and hyphens kept
+        self.assertEqual(e[("@chitra.k-1", "Channel X")], {"reply": 1})
+        self.assertEqual(len(e), 4)                                     # no edge for the e-mail address or the orphan reply
 
     def test_csv_text(self):
         e = E(net("posts.csv"))

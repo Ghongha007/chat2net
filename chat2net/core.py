@@ -21,6 +21,7 @@ from xml.sax.saxutils import quoteattr
 KINDS = ("reply", "mention", "forward", "repost")
 MENTION_RE = re.compile(r"(?<![\w@])@([A-Za-z0-9_]{2,32})")
 RT_RE = re.compile(r"^\s*RT @([A-Za-z0-9_]{1,32})\b")
+YT_HANDLE_RE = re.compile(r"(?<![\w@.])@([\w.\-]{3,30})")   # YouTube handles may contain dots and hyphens
 
 
 @dataclass
@@ -182,9 +183,16 @@ def parse_youtube(path: str) -> Iterator[Interaction]:
             if tgt:
                 yield Interaction(src, tgt, "reply", when)
         else:
+            tgt = uploader
             yield Interaction(src, uploader, "reply", when)
-        for name in MENTION_RE.findall(c.get("text") or ""):
-            yield Interaction(src, name, "mention", when)
+        # yt-dlp gives authors as "@handle", so mentions keep the "@" to land on the same account.
+        # A reply that opens with "@parent" is already counted as the reply, not again as a mention.
+        seen = {str(tgt).lower()} if tgt else set()
+        for name in YT_HANDLE_RE.findall(c.get("text") or ""):
+            handle = "@" + name.rstrip(".-")
+            if handle.lower() not in seen:
+                seen.add(handle.lower())
+                yield Interaction(src, handle, "mention", when)
 
 
 # ---------------------------------------------------------------- CSV / TSV

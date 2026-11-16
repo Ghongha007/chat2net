@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "chat2net"
-version = "0.1.0"
+version = "0.1.1"
 description = "Turn chat and social-media exports into network files for Gephi"
 readme = "README.md"
 requires-python = ">=3.9"
