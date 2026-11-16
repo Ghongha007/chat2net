@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "chat2net"
+version = "0.1.0"
+description = "Turn chat and social-media exports into network files for Gephi"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+keywords = ["osint", "gephi", "network-analysis", "telegram", "journalism"]
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/Ghongha007/chat2net"
+Issues = "https://github.com/Ghongha007/chat2net/issues"
+
+[project.scripts]
+chat2net = "chat2net.cli:main"
+
+[tool.setuptools]
+packages = ["chat2net"]

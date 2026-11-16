@@ -1,0 +1,9 @@
+{"name":"Town Hall","type":"public_supergroup","id":1,"messages":[
+{"id":1,"type":"message","date":"2026-10-01T10:00:00","date_unixtime":"1790848800","from":"Asha","from_id":"user1","text":"Meeting at six"},
+{"id":2,"type":"message","date":"2026-10-01T10:01:00","from":"Ben","from_id":"user2","reply_to_message_id":1,"text":"ok"},
+{"id":3,"type":"message","date":"2026-10-01T10:02:00","from":"Chitra","from_id":"user3","reply_to_message_id":1,"text":["cc ",{"type":"mention","text":"@dev_k"}],"text_entities":[{"type":"plain","text":"cc "},{"type":"mention","text":"@dev_k"}]},
+{"id":4,"type":"message","date":"2026-10-02T09:00:00","from":"Ben","from_id":"user2","forwarded_from":"City News","text":"fwd"},
+{"id":5,"type":"service","date":"2026-10-02T09:01:00","actor":"Asha","action":"pin_message"},
+{"id":6,"type":"message","date":"2026-10-03T09:00:00","from":"Asha","from_id":"user1","reply_to_message_id":1,"text":"self reply"},
+{"id":7,"type":"message","date":"2026-10-03T10:00:00","from":"Asha","from_id":"user1","reply_to_message_id":2,"text":"thanks"}
+]}
